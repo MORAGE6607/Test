@@ -3,64 +3,29 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>QuickShop | Dev Edition</title>
-    <style>
-        :root { --primary: #2563eb; --dark: #1e293b; --light: #f8fafc; }
-        body { font-family: 'Segoe UI', sans-serif; background: var(--light); margin: 0; padding: 20px; color: var(--dark); }
-        nav { display: flex; justify-content: space-between; align-items: center; max-width: 1000px; margin: 0 auto 40px; }
-        .cart-count { background: var(--primary); color: white; padding: 2px 8px; border-radius: 20px; font-size: 0.8rem; }
-        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; max-width: 1000px; margin: 0 auto; }
-        .card { background: white; padding: 20px; border-radius: 12px; box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1); border: 1px solid #e2e8f0; text-align: center; }
-        .price { font-size: 1.5rem; font-weight: bold; color: var(--primary); margin: 10px 0; }
-        button { background: var(--dark); color: white; border: none; padding: 10px 20px; border-radius: 6px; cursor: pointer; transition: 0.2s; width: 100%; }
-        button:hover { background: var(--primary); }
-        button:active { transform: scale(0.98); }
-    </style>
+    <title>TaskFlow Pro | Portfolio Project</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-    <nav>
-        <h2>QuickShop</h2>
-        <div>Cart: <span id="cart-qty" class="cart-count">0</span></div>
-    </nav>
+    <div class="app-container">
+        <header>
+            <h1>TaskFlow <span>Pro</span></h1>
+            <p id="date-display"></p>
+        </header>
 
-    <div class="grid">
-        <!-- Product 1 -->
-        <div class="card">
-            <h3>Mechanical Keyboard</h3>
-            <p>RGB Backlit - Blue Switches</p>
-            <div class="price">$89</div>
-            <button onclick="addToCart()">Add to Cart</button>
+        <form id="task-form">
+            <input type="text" id="task-input" placeholder="What needs to be done?" required>
+            <button type="submit">Add Task</button>
+        </form>
+
+        <div class="filter-bar">
+            <span id="items-left">0 items left</span>
         </div>
 
-        <!-- Product 2 -->
-        <div class="card">
-            <h3>Wireless Mouse</h3>
-            <p>Ergonomic 16000 DPI</p>
-            <div class="price">$45</div>
-            <button onclick="addToCart()">Add to Cart</button>
-        </div>
-
-        <!-- Product 3 -->
-        <div class="card">
-            <h3>USB-C Hub</h3>
-            <p>7-in-1 Aluminum Dock</p>
-            <div class="price">$32</div>
-            <button onclick="addToCart()">Add to Cart</button>
-        </div>
+        <ul id="task-list"></ul>
     </div>
 
-    <script>
-        let count = 0;
-        function addToCart() {
-            count++;
-            document.getElementById('cart-qty').innerText = count;
-            
-            // Adding a little feedback effect
-            const cart = document.getElementById('cart-qty');
-            cart.style.transform = 'scale(1.2)';
-            setTimeout(() => cart.style.transform = 'scale(1)', 200);
-        }
-    </script>
+    <script src="script.js"></script>
 </body>
 </html>
